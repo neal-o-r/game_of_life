@@ -41,7 +41,7 @@ end
 function print_to_screen(board::Array{Int8, 2})
 
         n = size(board)[1]
-        boardT = board.'
+        boardT = board.' # transpose to print
 
         for (i, val) in enumerate(boardT) 
 
@@ -62,11 +62,13 @@ function game_of_life(n=5, generations=20)
  
         board = zeros(Int8, n, n)
         board = glider(board)
-        print_to_screen(board)
-       
+
+        println("Generation 0")
+        print_to_screen(board)       
+
         for i in 1:generations
 
-                println("Generation", i)
+                println("Generation ", i)
                 board = next_gen(board)
                 print_to_screen(board)                
 
